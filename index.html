@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop Van Free Fire</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#070b14;color:#fff}
+header{padding:28px 16px;text-align:center;background:linear-gradient(135deg,#07162f,#101010);border-bottom:2px solid #19aaff}
+h1{margin:0;color:#ffd21c;font-size:34px}header p{margin:8px 0;color:#d9e9ff}
+.wrap{max-width:900px;margin:auto;padding:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.card{background:#0d1422;border:1px solid #168dff;border-radius:16px;padding:16px;text-align:center;box-shadow:0 0 16px #0066aa33}
+.diamond{font-size:26px}.qty{font-size:24px;font-weight:800}.price{display:inline-block;margin-top:10px;background:#ffd21c;color:#111;padding:8px 18px;border-radius:10px;font-weight:800}
+.order{margin-top:24px;background:#0d1422;border:1px solid #ffd21c;border-radius:18px;padding:20px}
+label{display:block;margin:12px 0 6px;color:#dce8ff}input,select{width:100%;padding:13px;border-radius:10px;border:1px solid #39516f;background:#111b2b;color:#fff;font-size:16px}
+button{width:100%;margin-top:18px;padding:14px;border:0;border-radius:12px;background:#ffd21c;color:#111;font-weight:900;font-size:17px}
+.note{font-size:13px;color:#aebbd0;line-height:1.6}.pay{margin-top:18px;padding:14px;border-radius:12px;background:#071b2d;border:1px solid #168dff}
+footer{text-align:center;padding:25px;color:#8fa0b8}
+
+.receipt{display:none;margin-top:22px;background:#fff;color:#111;border-radius:16px;padding:22px;border:3px solid #ffd21c}
+.receipt h2{text-align:center;margin:0 0 6px;color:#111}
+.receipt .brand{text-align:center;font-weight:900;color:#111;font-size:22px}
+.receipt hr{border:0;border-top:1px dashed #777;margin:15px 0}
+.receipt-row{display:flex;justify-content:space-between;gap:15px;padding:7px 0;border-bottom:1px solid #eee}
+.receipt-row b{color:#333}
+.receipt-total{text-align:center;font-size:24px;font-weight:900;margin-top:15px}
+.receipt-actions{display:flex;gap:10px;margin-top:15px}
+.receipt-actions button{margin-top:0}
+@media print{
+ body *{visibility:hidden}
+ .receipt,.receipt *{visibility:visible}
+ .receipt{display:block!important;position:absolute;left:0;top:0;width:100%;border:0}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>💎 SHOP VAN FREE FIRE</h1>
+  <p>Diamonds بسرعة • أثمنة واضحة • طلب سهل</p>
+</header>
+
+<main class="wrap">
+  <h2>💎 لائحة الأثمنة</h2>
+  <div class="grid">
+    <div class="card"><div class="diamond">💎</div><div class="qty">100</div><div class="price">15 DH</div></div>
+    <div class="card"><div class="diamond">💎</div><div class="qty">200</div><div class="price">30 DH</div></div>
+    <div class="card"><div class="diamond">💎</div><div class="qty">210</div><div class="price">31 DH</div></div>
+    <div class="card"><div class="diamond">💎</div><div class="qty">350</div><div class="price">55 DH</div></div>
+    <div class="card"><div class="diamond">💎</div><div class="qty">400</div><div class="price">60 DH</div></div>
+    <div class="card"><div class="diamond">💎</div><div class="qty">530</div><div class="price">71 DH</div></div>
+    <div class="card"><div class="diamond">💎</div><div class="qty">1080</div><div class="price">145 DH</div></div>
+  </div>
+
+  <section class="order">
+    <h2>🛒 اطلب دابا</h2>
+    <label>اختار الباقة</label>
+    <select id="pack">
+      <option value="100 Diamonds - 15 DH">100 💎 — 15 DH</option>
+      <option value="200 Diamonds - 30 DH">200 💎 — 30 DH</option>
+      <option value="210 Diamonds - 31 DH">210 💎 — 31 DH</option>
+      <option value="350 Diamonds - 55 DH">350 💎 — 55 DH</option>
+      <option value="400 Diamonds - 60 DH">400 💎 — 60 DH</option>
+      <option value="530 Diamonds - 71 DH">530 💎 — 71 DH</option>
+      <option value="1080 Diamonds - 145 DH">1080 💎 — 145 DH</option>
+    </select>
+
+    <label>Player ID ديال Free Fire</label>
+    <input id="uid" placeholder="دخل Player ID">
+
+    <label>الاسم ديالك</label>
+    <input id="name" placeholder="الاسم">
+
+    <label>رقم الهاتف للتواصل</label>
+    <input id="phone" placeholder="06XXXXXXXX">
+
+    <div class="pay">
+      <b>📱 طرق الدفع</b>
+      <p>🟠 Orange • 🟣 inwi • 🔴 اتصالات المغرب</p>
+      <p class="note">من بعد ما تختار الباقة، تواصل معنا عبر WhatsApp باش نعطيك طريقة الأداء المناسبة. ما تدخلش معلومات البطاقة البنكية ولا أي رمز سري فالموقع.</p>
+    </div>
+
+    <button type="button" onclick="sendOrder()">📲 إرسال الطلب عبر WhatsApp</button>
+    <p class="note">مهم: هاد النسخة كتجمع الطلب فقط. باش يكون الأداء بالبطاقة داخل الموقع فعلياً، خاص ربط الموقع ببوابة دفع رسمية.</p>
+  
+    <div id="receipt" class="receipt">
+      <div class="brand">💎 SHOP VAN FREE FIRE</div>
+      <h2>وصل الطلب / Bon de commande</h2>
+      <hr>
+      <div class="receipt-row"><b>رقم الطلب</b><span id="rOrder"></span></div>
+      <div class="receipt-row"><b>التاريخ</b><span id="rDate"></span></div>
+      <div class="receipt-row"><b>الباقة</b><span id="rPack"></span></div>
+      <div class="receipt-row"><b>Player ID</b><span id="rUid"></span></div>
+      <div class="receipt-row"><b>الاسم</b><span id="rName"></span></div>
+      <div class="receipt-row"><b>الهاتف</b><span id="rPhone"></span></div>
+      <div class="receipt-row"><b>الدفع</b><span>Orange / inwi / اتصالات المغرب</span></div>
+      <div class="receipt-total">المجموع: <span id="rPrice"></span> DH</div>
+      <hr>
+      <p style="text-align:center;margin:8px 0;font-weight:700">شكراً على طلبك ❤️</p>
+      <div class="receipt-actions">
+        <button type="button" onclick="window.print()">🖨️ طبع / حفظ PDF</button>
+      </div>
+    </div>
+</section>
+</main>
+
+<footer>© Shop Van Free Fire</footer>
+
+<script>
+function sendOrder() {
+  const pack = document.getElementById("pack").value;
+  const uid = document.getElementById("uid").value.trim();
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  if (!uid || !name || !phone) {
+    alert("عمر Player ID والاسم ورقم الهاتف.");
+    return;
+  }
+
+  const orderNo = "SV-" + Date.now().toString().slice(-6);
+  const now = new Date();
+  const date = now.toLocaleDateString("fr-MA") + " " + now.toLocaleTimeString("fr-MA", {hour:"2-digit", minute:"2-digit"});
+  const priceMatch = pack.match(/- ([0-9]+) DH/);
+  const price = priceMatch ? priceMatch[1] : "";
+
+  document.getElementById("rOrder").textContent = orderNo;
+  document.getElementById("rDate").textContent = date;
+  document.getElementById("rPack").textContent = pack;
+  document.getElementById("rUid").textContent = uid;
+  document.getElementById("rName").textContent = name;
+  document.getElementById("rPhone").textContent = phone;
+  document.getElementById("rPrice").textContent = price;
+  document.getElementById("receipt").style.display = "block";
+
+  const message =
+    "سلام Shop Van Free Fire 👋\n" +
+    "بغيت نطلب: " + pack + "\n" +
+    "Player ID: " + uid + "\n" +
+    "الاسم: " + name + "\n" +
+    "رقم الهاتف: " + phone + "\n" +
+    "رقم الطلب: " + orderNo;
+
+  const whatsapp = "https://wa.me/212788326788?text=" + encodeURIComponent(message);
+  window.open(whatsapp, "_blank");
+  document.getElementById("receipt").scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>
